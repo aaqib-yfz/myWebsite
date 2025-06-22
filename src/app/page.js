@@ -565,7 +565,7 @@ export default function Home() {
             </div>
 
             {/* Bottom: Text Content (Mobile) / Left: Text Content (Desktop) */}
-            <div className="flex-1 flex flex-col items-start order-2 md:order-1">
+            <div className="flex-1 flex flex-col items-start order-2 md:order-1 mt-1 md:mt-0">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-2 leading-tight text-center md:text-left">
                 HI, I&apos;M AAQIB!
               </h1>
@@ -987,9 +987,8 @@ export default function Home() {
                   <Image
                     src="/aaqib5.JPG"
                     alt="About me"
-                    layout="fill"
-                    objectFit="cover"
-                    className="rounded-lg"
+                    fill
+                    className="rounded-lg object-cover"
                     priority
                     loading="eager"
                     decoding="sync"

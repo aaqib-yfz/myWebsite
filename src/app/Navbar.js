@@ -5,12 +5,9 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="w-full bg-dark flex items-center justify-between px-0 py-0 h-20">
+    <nav className="w-full bg-dark flex items-center justify-between px-4 md:px-20 py-0 h-20">
       {/* Left Logo */}
       <div className="flex items-center h-full">
-        <div className="bg-primary h-20 w-20 flex items-center justify-center">
-          {/* Removed SVG hamburger logo */}
-        </div>
         <a
           href="#hero"
           className="text-white font-bold text-2xl tracking-widest cursor-pointer"
@@ -54,7 +51,7 @@ export default function Navbar() {
         </li>
       </ul>
       <button
-        className="hidden md:inline-block border border-[#41C88E] text-[#41C88E] font-bold px-6 py-2 ml-6 mr-20 shadow transition-all uppercase tracking-widest bg-transparent hover:bg-[#41C88E] hover:text-[#141C27]"
+        className="hidden md:inline-block border border-[#41C88E] text-[#41C88E] font-bold px-6 py-2 ml-6 shadow transition-all uppercase tracking-widest bg-transparent hover:bg-[#41C88E] hover:text-[#141C27]"
         onClick={() => {
           window.location.hash = "#contact";
         }}
@@ -73,19 +70,19 @@ export default function Navbar() {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <rect y="8" width="32" height="3" rx="1.5" fill="#141C27" />
-          <rect y="15" width="32" height="3" rx="1.5" fill="#141C27" />
-          <rect y="22" width="32" height="3" rx="1.5" fill="#141C27" />
+          <rect y="8" width="32" height="3" rx="1.5" fill="#41C88E" />
+          <rect y="15" width="32" height="3" rx="1.5" fill="#41C88E" />
+          <rect y="22" width="32" height="3" rx="1.5" fill="#41C88E" />
         </svg>
       </div>
       {/* Mobile Menu */}
       {open && (
-        <div className="absolute top-20 left-0 w-full bg-[#09101A]/90 flex flex-col items-center py-8 z-50 md:hidden">
-          <ul className="flex flex-col gap-6">
+        <div className="absolute top-20 left-0 w-full bg-[#09101A]/90 flex flex-col items-center justify-center py-8 z-50 md:hidden min-h-screen">
+          <ul className="flex flex-col items-center gap-6">
             <li>
               <a
                 href="#hero"
-                className="text-white font-semibold tracking-wide hover:text-primary cursor-pointer flex items-center gap-1 uppercase"
+                className="text-white font-semibold tracking-wide hover:text-primary cursor-pointer flex items-center gap-1 uppercase text-center"
               >
                 HOME
               </a>
@@ -93,7 +90,7 @@ export default function Navbar() {
             <li>
               <a
                 href="#about"
-                className="text-white font-semibold tracking-wide hover:text-primary cursor-pointer uppercase"
+                className="text-white font-semibold tracking-wide hover:text-primary cursor-pointer uppercase text-center"
               >
                 ABOUT
               </a>
@@ -101,7 +98,7 @@ export default function Navbar() {
             <li>
               <a
                 href="#services"
-                className="text-white font-semibold tracking-wide hover:text-primary cursor-pointer uppercase"
+                className="text-white font-semibold tracking-wide hover:text-primary cursor-pointer uppercase text-center"
               >
                 SERVICES
               </a>
@@ -109,7 +106,7 @@ export default function Navbar() {
             <li>
               <a
                 href="#resume"
-                className="text-white font-semibold tracking-wide hover:text-primary cursor-pointer uppercase"
+                className="text-white font-semibold tracking-wide hover:text-primary cursor-pointer uppercase text-center"
               >
                 RESUME
               </a>
