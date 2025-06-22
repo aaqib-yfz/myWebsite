@@ -334,7 +334,6 @@ function ResumeSection() {
 }
 
 export default function Home() {
-  const roles = ["ANALYST", "TESTER", "ENGINEER"];
   const [roleIndex, setRoleIndex] = useState(0);
   const [currentText, setCurrentText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
@@ -397,6 +396,7 @@ export default function Home() {
   };
 
   useEffect(() => {
+    const roles = ["ANALYST", "TESTER", "ENGINEER"];
     const typingSpeed = 150;
     const deletingSpeed = 100;
     const pauseDuration = 1500;
@@ -429,7 +429,7 @@ export default function Home() {
     );
 
     return () => clearTimeout(timer);
-  }, [currentText, isDeleting, roleIndex, roles]);
+  }, [currentText, isDeleting, roleIndex]);
 
   useEffect(() => {
     AOS.init({
@@ -545,7 +545,7 @@ export default function Home() {
             {/* Bottom: Text Content (Mobile) / Left: Text Content (Desktop) */}
             <div className="flex-1 flex flex-col items-start order-2 md:order-1">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-2 leading-tight text-center md:text-left">
-                HI, I'M AAQIB!
+                HI, I&apos;M AAQIB!
               </h1>
               <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight text-center md:text-left">
                 SOFTWARE QA{" "}
@@ -989,7 +989,7 @@ export default function Home() {
                 CONTACT ME
               </h3>
               <h2 className="text-4xl md:text-5xl font-semibold text-white">
-                Let's work together
+                Let&apos;s work together
               </h2>
             </div>
 
