@@ -502,13 +502,12 @@ export default function Home() {
             {/* Top: Hexagon Image (Mobile) / Right: Hexagon Image (Desktop) */}
             <div className="flex justify-center items-center order-1 md:order-2">
               <div className="relative w-[220px] h-[240px] sm:w-[280px] sm:h-[310px] md:w-[320px] md:h-[360px] lg:w-[400px] lg:h-[440px] flex items-center justify-center">
-                {/* Hexagon Image inside SVG with matching border */}
+                {/* Hexagon SVG with image and animated border */}
                 <svg
+                  className="absolute inset-0 w-full h-full"
                   viewBox="0 0 100 100"
-                  width="100%"
-                  height="100%"
-                  className="absolute inset-0 z-10"
-                  style={{ display: "block" }}
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
                   <defs>
                     <clipPath id="hexClip">
@@ -523,20 +522,16 @@ export default function Home() {
                     height="100"
                     clipPath="url(#hexClip)"
                     preserveAspectRatio="xMidYMid slice"
+                    loading="eager"
+                    decoding="sync"
                   />
                   <polygon
                     points="50,0 93,25 93,75 50,100 7,75 7,25"
                     fill="none"
-                    stroke="#55E6A5"
-                    strokeWidth="6"
-                    strokeLinejoin="round"
-                    vectorEffect="non-scaling-stroke"
-                    style={{
-                      strokeDasharray: 50,
-                      strokeDashoffset: 0,
-                      animation:
-                        "flow-hexagon 8s ease-in-out infinite alternate",
-                    }}
+                    stroke="#41C88E"
+                    strokeWidth="0.8"
+                    className="animate-draw-border"
+                    filter="drop-shadow(0 0 3px #41C88E)"
                   />
                 </svg>
               </div>
@@ -963,7 +958,7 @@ export default function Home() {
                 {/* Image */}
                 <div className="absolute top-6 sm:top-7 md:top-8 left-0 w-[90%] h-[90%] z-10">
                   <Image
-                    src="/aaqib4.png"
+                    src="/aaqib5.JPG"
                     alt="About me"
                     layout="fill"
                     objectFit="cover"
