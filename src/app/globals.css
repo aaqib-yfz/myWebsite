@@ -24,3 +24,30 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.site-bg {
+  background-color: #02050a;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes draw-hexagon {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes flow-hexagon {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 50;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
