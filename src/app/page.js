@@ -199,6 +199,9 @@ function ResumeSection() {
                         width={64}
                         height={64}
                         style={{ objectFit: "contain" }}
+                        priority
+                        loading="eager"
+                        decoding="sync"
                       />
                       <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bg-[#141C27] text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10 border border-[#55E6A5]">
                         Cypress
@@ -212,6 +215,9 @@ function ResumeSection() {
                         width={64}
                         height={64}
                         style={{ objectFit: "contain" }}
+                        priority
+                        loading="eager"
+                        decoding="sync"
                       />
                       <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bg-[#141C27] text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10 border border-[#55E6A5]">
                         Playwright
@@ -228,6 +234,9 @@ function ResumeSection() {
                           filter: "brightness(0) invert(1)",
                           objectFit: "contain",
                         }}
+                        priority
+                        loading="eager"
+                        decoding="sync"
                       />
                       <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bg-[#141C27] text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10 border border-[#55E6A5]">
                         Selenium
@@ -245,6 +254,9 @@ function ResumeSection() {
                         width={64}
                         height={64}
                         style={{ objectFit: "contain" }}
+                        priority
+                        loading="eager"
+                        decoding="sync"
                       />
                       <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bg-[#141C27] text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10 border border-[#55E6A5]">
                         Jira
@@ -261,6 +273,9 @@ function ResumeSection() {
                           filter: "brightness(0) invert(1)",
                           objectFit: "contain",
                         }}
+                        priority
+                        loading="eager"
+                        decoding="sync"
                       />
                       <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bg-[#141C27] text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10 border border-[#55E6A5]">
                         Swit
@@ -274,6 +289,9 @@ function ResumeSection() {
                         width={64}
                         height={64}
                         style={{ objectFit: "contain" }}
+                        priority
+                        loading="eager"
+                        decoding="sync"
                       />
                       <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bg-[#141C27] text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10 border border-[#55E6A5]">
                         Wrike
@@ -291,6 +309,9 @@ function ResumeSection() {
                         width={64}
                         height={64}
                         style={{ objectFit: "contain" }}
+                        priority
+                        loading="eager"
+                        decoding="sync"
                       />
                       <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bg-[#141C27] text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10 border border-[#55E6A5]">
                         JavaScript
@@ -304,6 +325,9 @@ function ResumeSection() {
                         width={64}
                         height={64}
                         style={{ objectFit: "contain" }}
+                        priority
+                        loading="eager"
+                        decoding="sync"
                       />
                       <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bg-[#141C27] text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10 border border-[#55E6A5]">
                         Java
@@ -317,6 +341,9 @@ function ResumeSection() {
                         width={64}
                         height={64}
                         style={{ objectFit: "contain" }}
+                        priority
+                        loading="eager"
+                        decoding="sync"
                       />
                       <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bg-[#141C27] text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10 border border-[#55E6A5]">
                         TypeScript
@@ -963,6 +990,9 @@ export default function Home() {
                     layout="fill"
                     objectFit="cover"
                     className="rounded-lg"
+                    priority
+                    loading="eager"
+                    decoding="sync"
                   />
                 </div>
               </div>
