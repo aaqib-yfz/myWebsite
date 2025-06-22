@@ -551,13 +551,14 @@ export default function Home() {
                 SOFTWARE QA{" "}
                 <span className="text-[#55E6A5]">{currentText}</span>
               </h2>
-              <p className="text-base sm:text-lg md:text-lg lg:text-lg text-gray-300 mb-6 md:mb-8 lg:mb-10 max-w-xl text-center md:text-left">
-                I am a results driven QA Automation Engineer with one year of
-                experience in quality assurance and test automation. I
-                specialize in developing comprehensive test suites and
-                automation frameworks that proactively identify and mitigate
-                issues, ensuring the delivery of reliable and high performing
-                software solutions.
+              <p className="text-base sm:text-lg md:text-lg lg:text-lg text-gray-300 mb-6 md:mb-8 lg:mb-10 max-w-xl text-justify">
+                Passionate about delivering flawless digital experiences, I
+                specialize in ensuring software quality through automation,
+                rigorous testing practices, and continuous improvement. With a
+                strong understanding of modern QA methodologies and tools, I
+                thrive on identifying critical issues early, optimizing
+                workflows, and championing quality throughout the development
+                lifecycle.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 items-center md:items-start w-full">
                 <a

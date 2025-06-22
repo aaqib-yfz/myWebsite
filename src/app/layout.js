@@ -6,7 +6,7 @@ export const metadata = {
   description:
     "QA Automation Engineer specializing in test automation, API testing, and quality assurance solutions.",
   icons: {
-    icon: "/myFavicon.png",
+    icon: "/favicon.png",
   },
 };
 
