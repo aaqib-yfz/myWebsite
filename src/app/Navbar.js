@@ -1,25 +1,39 @@
 "use client";
 import React, { useState } from "react";
+import { useRouter, usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
+
+  // Helper for nav link click
+  const handleNavClick = (e, hash) => {
+    if (pathname === "/reviews") {
+      e.preventDefault();
+      router.push(`/${hash}`);
+    }
+    // Otherwise, let anchor work as normal
+  };
 
   return (
-    <nav className="w-full bg-dark flex items-center justify-between px-4 md:px-20 py-0 h-20">
+    <nav className="w-full bg-dark flex items-center justify-between px-4 md:px-20 py-0 h-20 relative">
       {/* Left Logo */}
-      <div className="flex items-center h-full">
+      <div className="flex items-center h-full z-10">
         <a
           href="#hero"
+          onClick={(e) => handleNavClick(e, "#hero")}
           className="text-white font-bold text-2xl tracking-widest cursor-pointer"
         >
           AAQIB
         </a>
       </div>
       {/* Center Nav Links */}
-      <ul className="hidden md:flex flex-1 justify-center items-center gap-8">
+      <ul className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-8">
         <li>
           <a
             href="#hero"
+            onClick={(e) => handleNavClick(e, "#hero")}
             className="text-white font-semibold tracking-wide hover:text-primary cursor-pointer flex items-center gap-1 uppercase"
           >
             HOME
@@ -28,6 +42,7 @@ export default function Navbar() {
         <li>
           <a
             href="#about"
+            onClick={(e) => handleNavClick(e, "#about")}
             className="text-white font-semibold tracking-wide hover:text-primary cursor-pointer uppercase"
           >
             ABOUT
@@ -36,6 +51,7 @@ export default function Navbar() {
         <li>
           <a
             href="#services"
+            onClick={(e) => handleNavClick(e, "#services")}
             className="text-white font-semibold tracking-wide hover:text-primary cursor-pointer uppercase"
           >
             SERVICES
@@ -44,20 +60,36 @@ export default function Navbar() {
         <li>
           <a
             href="#resume"
+            onClick={(e) => handleNavClick(e, "#resume")}
             className="text-white font-semibold tracking-wide hover:text-primary cursor-pointer uppercase"
           >
             RESUME
           </a>
         </li>
       </ul>
-      <button
-        className="hidden md:inline-block border border-[#41C88E] text-[#41C88E] font-bold px-6 py-2 ml-6 shadow transition-all uppercase tracking-widest bg-transparent hover:bg-[#41C88E] hover:text-[#141C27]"
-        onClick={() => {
-          window.location.hash = "#contact";
-        }}
-      >
-        Hire Me
-      </button>
+      <div className="hidden md:flex items-center gap-4 ml-6 z-10">
+        <button
+          className="border border-[#41C88E] text-[#41C88E] font-bold px-6 py-2 shadow transition-all uppercase tracking-widest bg-transparent hover:bg-[#41C88E] hover:text-[#141C27]"
+          onClick={() => {
+            router.push("/reviews");
+          }}
+        >
+          Submit Feedback
+        </button>
+        <button
+          className="border border-[#41C88E] text-[#41C88E] font-bold px-6 py-2 shadow transition-all uppercase tracking-widest bg-transparent hover:bg-[#41C88E] hover:text-[#141C27]"
+          onClick={(e) => {
+            if (pathname === "/reviews") {
+              e.preventDefault();
+              router.push("/#contact");
+            } else {
+              window.location.hash = "#contact";
+            }
+          }}
+        >
+          Hire Me
+        </button>
+      </div>
       {/* Right Hamburger */}
       <div
         className="bg-primary h-20 w-20 flex items-center justify-center md:hidden cursor-pointer"
@@ -82,6 +114,7 @@ export default function Navbar() {
             <li>
               <a
                 href="#hero"
+                onClick={(e) => handleNavClick(e, "#hero")}
                 className="text-white font-semibold tracking-wide hover:text-primary cursor-pointer flex items-center gap-1 uppercase text-center"
               >
                 HOME
@@ -90,6 +123,7 @@ export default function Navbar() {
             <li>
               <a
                 href="#about"
+                onClick={(e) => handleNavClick(e, "#about")}
                 className="text-white font-semibold tracking-wide hover:text-primary cursor-pointer uppercase text-center"
               >
                 ABOUT
@@ -98,6 +132,7 @@ export default function Navbar() {
             <li>
               <a
                 href="#services"
+                onClick={(e) => handleNavClick(e, "#services")}
                 className="text-white font-semibold tracking-wide hover:text-primary cursor-pointer uppercase text-center"
               >
                 SERVICES
@@ -106,20 +141,36 @@ export default function Navbar() {
             <li>
               <a
                 href="#resume"
+                onClick={(e) => handleNavClick(e, "#resume")}
                 className="text-white font-semibold tracking-wide hover:text-primary cursor-pointer uppercase text-center"
               >
                 RESUME
               </a>
             </li>
           </ul>
-          <button
-            className="mt-8 border border-[#41C88E] text-[#41C88E] font-bold px-8 py-3 shadow transition-all uppercase tracking-widest bg-transparent hover:bg-[#41C88E] hover:text-[#141C27]"
-            onClick={() => {
-              window.location.hash = "#contact";
-            }}
-          >
-            Hire Me
-          </button>
+          <div className="flex items-center gap-4 mt-8 z-10">
+            <button
+              className="border border-[#41C88E] text-[#41C88E] font-bold px-6 py-2 shadow transition-all uppercase tracking-widest bg-transparent hover:bg-[#41C88E] hover:text-[#141C27]"
+              onClick={() => {
+                router.push("/reviews");
+              }}
+            >
+              Submit Feedback
+            </button>
+            <button
+              className="border border-[#41C88E] text-[#41C88E] font-bold px-6 py-2 shadow transition-all uppercase tracking-widest bg-transparent hover:bg-[#41C88E] hover:text-[#141C27]"
+              onClick={(e) => {
+                if (pathname === "/reviews") {
+                  e.preventDefault();
+                  router.push("/#contact");
+                } else {
+                  window.location.hash = "#contact";
+                }
+              }}
+            >
+              Hire Me
+            </button>
+          </div>
         </div>
       )}
     </nav>

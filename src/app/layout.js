@@ -1,5 +1,6 @@
 import "./globals.css";
-import Navbar from "./Navbar";
+import NavbarWrapper from "./NavbarWrapper";
+import NProgressHandler from "./NProgressHandler";
 
 export const metadata = {
   title: "Aaqib Shaheer | QA Engineer",
@@ -13,8 +14,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="site-bg">
-        <Navbar />
+      <body>
+        <NProgressHandler />
+        <NavbarWrapper />
         {children}
       </body>
     </html>

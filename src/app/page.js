@@ -566,10 +566,10 @@ export default function Home() {
 
             {/* Bottom: Text Content (Mobile) / Left: Text Content (Desktop) */}
             <div className="flex-1 flex flex-col items-start order-2 md:order-1 mt-1 md:mt-0">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-2 leading-tight text-center md:text-left">
+              <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-2 leading-tight text-center md:text-left">
                 HI, I&apos;M AAQIB!
               </h1>
-              <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight text-center md:text-left">
+              <h2 className="text-xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 leading-tight text-center md:text-left">
                 SOFTWARE QA{" "}
                 <span className="text-[#55E6A5]">{currentText}</span>
               </h2>
@@ -1101,20 +1101,6 @@ export default function Home() {
                     className="bg-[#55E6A5] text-[#141C27] font-bold py-3 px-8 shadow-lg hover:bg-[#41c88e] transition self-start flex items-center gap-2 text-lg mt-2"
                   >
                     Send Message
-                    <svg
-                      className="w-5 h-5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={2}
-                      stroke="currentColor"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"
-                      />
-                    </svg>
                   </button>
                   {status && (
                     <div className="text-sm mt-2 text-[#55E6A5]">{status}</div>
