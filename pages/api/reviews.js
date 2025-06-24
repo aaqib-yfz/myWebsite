@@ -20,10 +20,11 @@ export default async function handler(req, res) {
     client.close();
     return res.status(200).json({ reviews });
   } else if (req.method === "POST") {
-    const { name, company, rating, message } = req.body;
+    const { name, company, project, rating, message } = req.body;
     const review = {
       name,
       company,
+      project,
       rating,
       message,
       date: new Date().toISOString(),

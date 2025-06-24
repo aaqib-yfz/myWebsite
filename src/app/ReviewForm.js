@@ -23,6 +23,7 @@ export default function ReviewForm() {
   const [form, setForm] = useState({
     name: "",
     company: "",
+    project: "",
     rating: 5,
     message: "",
   });
@@ -74,7 +75,7 @@ export default function ReviewForm() {
       const data = await res.json();
       if (res.ok) {
         setStatus("Thank you for your review!");
-        setForm({ name: "", company: "", rating: 5, message: "" });
+        setForm({ name: "", company: "", project: "", rating: 5, message: "" });
         // Fetch updated reviews
         const res2 = await fetch("/api/reviews");
         const data2 = await res2.json();
@@ -124,6 +125,15 @@ export default function ReviewForm() {
           value={form.company}
           onChange={handleChange}
           className="text-white px-4 py-3 border border-[#55E6A5] focus:outline-none bg-[#09101A]"
+        />
+        <input
+          type="text"
+          name="project"
+          placeholder="Project Name"
+          value={form.project}
+          onChange={handleChange}
+          className="text-white px-4 py-3 border border-[#55E6A5] focus:outline-none bg-[#09101A]"
+          required
         />
         <label className="text-gray-300 mt-2">Rating</label>
         <div className="flex items-center gap-2 mb-2">
@@ -180,29 +190,48 @@ export default function ReviewForm() {
             <div className="w-full transition-all duration-500 ease-in-out">
               <div className="bg-[#141C27] rounded-xl p-6 shadow flex flex-col gap-2">
                 <div className="flex items-center gap-2 mb-1">
-                  {[1, 2, 3, 4, 5].map((star) => (
-                    <span
-                      key={star}
-                      className={`text-xl ${
-                        star <= reviews[currentReview].rating
-                          ? "text-yellow-400"
-                          : "text-gray-600"
-                      }`}
-                    >
-                      ★
+                  <div className="flex items-center gap-2">
+                    <span className="font-semibold text-white">
+                      {reviews[currentReview].name}
                     </span>
-                  ))}
+                    <span className="flex items-center gap-0.5">
+                      {[1, 2, 3, 4, 5].map((star) => (
+                        <span
+                          key={star}
+                          className={`text-xl ${
+                            star <= reviews[currentReview].rating
+                              ? "text-yellow-400"
+                              : "text-gray-600"
+                          }`}
+                        >
+                          ★
+                        </span>
+                      ))}
+                    </span>
+                  </div>
                   <span className="ml-2 text-sm text-gray-400">
                     {new Date(reviews[currentReview].date).toLocaleDateString()}
                   </span>
                 </div>
                 <div className="flex flex-col gap-0.5">
-                  <span className="font-semibold text-white">
-                    {reviews[currentReview].name}
-                  </span>
                   {reviews[currentReview].company && (
-                    <span className="text-gray-400 text-sm">
+                    <span className="text-gray-400 text-sm flex items-center gap-1">
+                      <img
+                        src="/company.png"
+                        alt="Company"
+                        className="w-5 h-5 inline-block mr-1"
+                      />
                       {reviews[currentReview].company}
+                    </span>
+                  )}
+                  {reviews[currentReview].project && (
+                    <span className="text-[#55E6A5] text-sm font-semibold flex items-center gap-1">
+                      <img
+                        src="/project.png"
+                        alt="Project"
+                        className="w-5 h-5 inline-block mr-1"
+                      />
+                      {reviews[currentReview].project}
                     </span>
                   )}
                 </div>
