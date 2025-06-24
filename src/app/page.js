@@ -576,9 +576,9 @@ export default function Home() {
               <p className="text-base sm:text-lg md:text-lg lg:text-lg text-gray-300 mb-6 md:mb-8 lg:mb-10 max-w-xl text-justify">
                 Passionate about delivering flawless digital experiences, I
                 specialize in ensuring software quality through automation,
-                rigorous testing practices, and continuous improvement. With a
+                rigorous testing practices and continuous improvement. With a
                 strong understanding of modern QA methodologies and tools, I
-                thrive on identifying critical issues early, optimizing
+                thrive on identifying critical issues early optimizing
                 workflows, and championing quality throughout the development
                 lifecycle.
               </p>

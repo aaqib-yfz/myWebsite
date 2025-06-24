@@ -31,10 +31,13 @@ export default function ReviewForm() {
   const [reviews, setReviews] = useState([]);
   const [currentReview, setCurrentReview] = useState(0);
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [showFullReview, setShowFullReview] = useState(false);
 
   useEffect(() => {
     // Fetch reviews from API on mount
     async function fetchReviews() {
+      setLoading(true);
       try {
         const res = await fetch("/api/reviews");
         const data = await res.json();
@@ -47,6 +50,7 @@ export default function ReviewForm() {
       } catch (err) {
         setError("Failed to fetch reviews.");
       }
+      setLoading(false);
     }
     fetchReviews();
   }, []);
@@ -172,7 +176,32 @@ export default function ReviewForm() {
 
       {/* Reviews Section */}
       <div className="w-full max-w-xl mx-auto mt-12">
-        {reviews.length === 0 ? (
+        {loading ? (
+          <div className="flex flex-col items-center justify-center py-12">
+            <div className="bg-[#09101A] rounded-md p-4 mb-4 flex items-center justify-center">
+              <svg className="animate-spin w-10 h-10" viewBox="0 0 50 50">
+                <circle
+                  className="opacity-20"
+                  cx="25"
+                  cy="25"
+                  r="20"
+                  stroke="#55E6A5"
+                  strokeWidth="5"
+                  fill="none"
+                />
+                <path
+                  d="M25 5a20 20 0 0 1 0 40"
+                  stroke="#41C88E"
+                  strokeWidth="5"
+                  fill="none"
+                />
+              </svg>
+            </div>
+            <div className="text-xl font-bold text-[#55E6A5] mb-2 text-center">
+              Loading reviews...
+            </div>
+          </div>
+        ) : reviews.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-12">
             <div className="bg-[#09101A] rounded-md p-4 mb-4 flex items-center justify-center">
               <StarIcon filled className="w-10 h-10" />
@@ -188,12 +217,32 @@ export default function ReviewForm() {
         ) : (
           <div className="relative flex flex-col items-center">
             <div className="w-full transition-all duration-500 ease-in-out">
-              <div className="bg-[#141C27] rounded-xl p-6 shadow flex flex-col gap-2">
-                <div className="flex items-center gap-2 mb-1">
-                  <div className="flex items-center gap-2">
-                    <span className="font-semibold text-white">
-                      {reviews[currentReview].name}
+              <div className="bg-[#09101A] rounded-xl p-6 shadow flex flex-col gap-2">
+                <div className="flex flex-col gap-0.5 mb-1">
+                  <span className="font-semibold text-white">
+                    {reviews[currentReview].name}
+                  </span>
+                  {reviews[currentReview].company && (
+                    <span className="text-gray-400 text-sm flex items-center gap-1">
+                      <img
+                        src="/company.png"
+                        alt="Company"
+                        className="w-5 h-5 inline-block mr-1"
+                      />
+                      {reviews[currentReview].company}
                     </span>
+                  )}
+                  {reviews[currentReview].project && (
+                    <span className="text-gray-400 text-sm font-semibold flex items-center gap-1 mt-2">
+                      <img
+                        src="/project.png"
+                        alt="Project"
+                        className="w-5 h-5 inline-block mr-1"
+                      />
+                      {reviews[currentReview].project}
+                    </span>
+                  )}
+                  <div className="flex items-center gap-2 mt-1">
                     <span className="flex items-center gap-0.5">
                       {[1, 2, 3, 4, 5].map((star) => (
                         <span
@@ -208,35 +257,49 @@ export default function ReviewForm() {
                         </span>
                       ))}
                     </span>
+                    <span className="font-bold text-gray-400 text-lg ml-2">
+                      {Number(reviews[currentReview].rating).toFixed(1)}
+                    </span>
+                    <span className="mx-2 text-gray-500">|</span>
+                    <span className="text-sm text-gray-400">
+                      {new Date(reviews[currentReview].date).toLocaleDateString(
+                        undefined,
+                        { month: "short", day: "numeric", year: "numeric" }
+                      )}
+                    </span>
                   </div>
-                  <span className="ml-2 text-sm text-gray-400">
-                    {new Date(reviews[currentReview].date).toLocaleDateString()}
-                  </span>
                 </div>
-                <div className="flex flex-col gap-0.5">
-                  {reviews[currentReview].company && (
-                    <span className="text-gray-400 text-sm flex items-center gap-1">
-                      <img
-                        src="/company.png"
-                        alt="Company"
-                        className="w-5 h-5 inline-block mr-1"
-                      />
-                      {reviews[currentReview].company}
-                    </span>
-                  )}
-                  {reviews[currentReview].project && (
-                    <span className="text-[#55E6A5] text-sm font-semibold flex items-center gap-1">
-                      <img
-                        src="/project.png"
-                        alt="Project"
-                        className="w-5 h-5 inline-block mr-1"
-                      />
-                      {reviews[currentReview].project}
-                    </span>
-                  )}
-                </div>
-                <div className="text-gray-200 text-base mt-1 break-words whitespace-pre-line">
+                <div
+                  className={`text-gray-300 text-base mt-1 break-words whitespace-pre-line text-justify relative ${
+                    !showFullReview ? "line-clamp-3" : ""
+                  }`}
+                  style={
+                    !showFullReview
+                      ? {
+                          WebkitMaskImage:
+                            "linear-gradient(180deg, #000 60%, transparent 100%)",
+                        }
+                      : {}
+                  }
+                >
                   {reviews[currentReview].message}
+                  {reviews[currentReview].message.split(/\r?\n| /).length >
+                    20 &&
+                    (!showFullReview ? (
+                      <span
+                        className="ml-2 cursor-pointer font-semibold text-[#55E6A5] hover:underline absolute bottom-0 right-0 bg-[#141C27] px-2"
+                        onClick={() => setShowFullReview(true)}
+                      >
+                        see more
+                      </span>
+                    ) : (
+                      <span
+                        className="ml-2 cursor-pointer font-semibold text-[#55E6A5] hover:underline inline"
+                        onClick={() => setShowFullReview(false)}
+                      >
+                        see less
+                      </span>
+                    ))}
                 </div>
               </div>
             </div>
