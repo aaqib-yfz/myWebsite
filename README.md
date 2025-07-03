@@ -1,4 +1,4 @@
-# Muhammad Aaqib - Personal Portfolio
+# Aaqib Shaheer - Personal Portfolio
 
 This is the repository for my personal portfolio website, showcasing my skills, projects, and professional experience as a QA Automation Engineer. Built with modern web technologies, it features a clean, responsive design with smooth animations.
 
