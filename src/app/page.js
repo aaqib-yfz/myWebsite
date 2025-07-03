@@ -191,6 +191,25 @@ function ResumeSection() {
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 justify-center md:ml-[155px]">
                 {skillsTab === "Automation Testing Tools" && (
                   <>
+                    {/* Appium */}
+                    <div className="bg-[#141C27] rounded-xl flex items-center justify-center h-40 relative group">
+                      <Image
+                        src="/appium.png"
+                        alt="Appium"
+                        width={64}
+                        height={64}
+                        style={{
+                          filter: "brightness(0) invert(1)",
+                          objectFit: "contain",
+                        }}
+                        priority
+                        loading="eager"
+                        decoding="sync"
+                      />
+                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bg-[#141C27] text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10 border border-[#55E6A5]">
+                        Appium
+                      </div>
+                    </div>
                     {/* Cypress */}
                     <div className="bg-[#141C27] rounded-xl flex items-center justify-center h-40 relative group">
                       <Image
@@ -221,25 +240,6 @@ function ResumeSection() {
                       />
                       <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bg-[#141C27] text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10 border border-[#55E6A5]">
                         Playwright
-                      </div>
-                    </div>
-                    {/* Selenium */}
-                    <div className="bg-[#141C27] rounded-xl flex items-center justify-center h-40 relative group">
-                      <Image
-                        src="/selenium.png"
-                        alt="Selenium"
-                        width={64}
-                        height={64}
-                        style={{
-                          filter: "brightness(0) invert(1)",
-                          objectFit: "contain",
-                        }}
-                        priority
-                        loading="eager"
-                        decoding="sync"
-                      />
-                      <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-1 bg-[#141C27] text-white text-sm rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-10 border border-[#55E6A5]">
-                        Selenium
                       </div>
                     </div>
                   </>
@@ -916,7 +916,7 @@ export default function Home() {
                   <ul className="list-disc list-inside text-gray-300 ml-2">
                     <li>Cypress</li>
                     <li>Playwright</li>
-                    <li>Selenium</li>
+                    <li>Appium</li>
                   </ul>
                 </div>
               </div>
